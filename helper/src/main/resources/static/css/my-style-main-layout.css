@@ -1,0 +1,23 @@
+.my_style_one {
+	 padding-bottom: 0; 
+     margin: 0 0 0 0; 
+}
+
+/*.my_style_two {
+	margin:0 auto;
+	width:15%;
+}*/
+
+.myMainLeftLayout { vertical-align: middle; }
+.myMainCentreLayout { }
+.myMainRightLayout { }
+
+/*.reddd { display:inline-block;width:30%; }
+.grennnnn{ display:inline-block;width:30%; }
+.xxxxxx { display:inline-block;width:30%; }*/
+
+.myMainLeftLayout { width:33%; }
+.myMainCentreLayout{ width:25%; margin-left: 5% }
+.myMainRightLayout { width:25%; margin-left: 5%; }
+
+.mycontainer { display:flex; }

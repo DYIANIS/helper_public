@@ -1,0 +1,86 @@
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+td div.checkbox {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 4px;
+}
+
+.btn-fab span.glyphicon {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+.checkbox .checkbox-material, label.checkbox-inline .checkbox-material {
+    top: 0;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.navbar.navbar-fixed-bottom.footer {
+    line-height: 60px;
+    /*background-color: red;*/
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-copyright a, .footer-copyright a:hover, .footer-copyright a:focus {
+    color: white;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+#login{
+    display:flex;
+    justify-content: center;
+}
+
+.login{
+    min-width: 500px;
+}
+
+.login-title{
+    width:100%;
+    display:block;
+    text-align:center;
+    line-height: 1.2;
+    font-size:30px;
+}
+
+.transference-span{
+    width:35%;
+    display:block;
+    text-align:left;
+    line-height: 1.2;
+    font-size:30px;
+}
+
+.navbar .navbar-form{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn.btn-lg{
+    padding-top:10px;
+    color: inherit;
+}
+.dropdown-menu a{
+	cursor:pointer;
+}

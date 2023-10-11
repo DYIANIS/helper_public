@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title th:text=#{title}></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css"></link>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"></link>
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap-material-datetimepicker.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap-combobox.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/ripples.min.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-main-layout.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-for-calendar.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-center-text-layout.css}" rel="stylesheet" type="text/css"></link>
+    <!-- Bootstrap For Datetimepicker -->
+    <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
+    <!--link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/-->
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>
+    
+</head>
+<body>
+    <div id="wrap">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/goHome}" th:text=#{title}></a>
+                </div>
+                <form class="navbar-form navbar-right" th:action="@{/logout}" method="POST">
+                   <button type="submit" class="btn btn-flat btn-lg" th:text="#{logout}"></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:utext=#{language}>
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?lang=en">EN</a></li>
+                            <li><a href="?lang=ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+    
+    <div>
+        <div class="container" id="newTransference">
+            <div class="row">
+                <form th:action="@{/transference}" th:object="${transferenceDto}" class="form-horizontal" method="POST">
+                    <fieldset>
+                        
+                        <div class="mycontainer">
+                            
+                            <div class="myMainLeftLayout"></span></div>
+                            
+                            <div class="myMainCentreLayout">
+                                <div class="myCenterLayout">
+	                                <label>
+	                                   <span th:text="#{transference.label}"></span>
+	                                </label>
+                                </div>
+                                
+                                <div class="myCenterLayout">
+	                                <label>
+                                        <span th:text="${getTradePointName}"></span>
+	                                </label>
+                                </div>
+                            </div>
+                            
+                            <div class="myMainRightLayout"></div>
+                            
+                        </div>
+                        
+                        <div class="mycontainer">
+                            
+                            <div class="myMainLeftLayout"><span class="login-title" th:text="#{transference.selectKeyCheck}"/></span></div>
+                            
+                            <div class="myMainCentreLayout"><input class="form-control myCenterLayout" type="text" id="startCheckNumber" name="startCheckNumber" th:field="*{startCheckNumber}" autofocus="autofocus" th:attr="placeholder=#{transference.inputStartKeyCheck}"/></div>
+                            
+                            <div class="myMainRightLayout"><input class="form-control myCenterLayout" type="text" id="endCheckNumber" name="endCheckNumber" th:field="*{endCheckNumber}" autofocus="autofocus" th:attr="placeholder=#{transference.inputEndKeyCheck}"/></div>
+                            
+                        </div>
+                        
+                        <div class="mycontainer">
+                            
+                            <div class="myMainLeftLayout"><span class="login-title" th:text="#{transference.selectSellers}"/></span></div>
+                            
+                            <div class="myMainCentreLayout">
+                                <div class="form-group padding-sides-none my_style_one">
+                                    <select class="form-control selectpicker centerSelect" id="selectedStartSeller" name="selectedStartSeller" th:field="*{selectedStartSeller}" data-live-search="true">
+                                        <option th:value="''" th:text="#{transference.selectStartSeller}"></option>
+                                        
+                                        <option th:each="seller : ${getStartSellers}" th:value="${seller.name}" th:text="${seller.name}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                                
+                            <div class="myMainRightLayout">
+                                <div class="form-group padding-sides-none my_style_one">
+                                    
+                                    <select class="form-control selectpicker centerSelect" id="selectedEndSeller" name="selectedEndSeller" th:field="*{selectedEndSeller}" data-live-search="true">
+                                        <option th:value="''" th:text="#{transference.selectEndSeller}"></option>
+                                        
+                                        <option th:each="seller : ${getEndSellers}" th:value="${seller.name}" th:text="${seller.name}"></option>
+                                    </select>
+
+                                    <p th:each="error: ${#fields.errors('selectedEndSeller')}" th:text="${error}">Validation error</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="mycontainer">
+                            
+                            <div class="myMainLeftLayout"><span class="login-title" th:text="#{transference.selectFRTitle}"/></span></div>
+                            
+                            <div class="myMainCentreLayout">
+                                <div class="form-group padding-sides-none my_style_one">
+                                    <select class="form-control selectpicker centerSelect" id="selectedRegistrar" name="selectedRegistrar" th:field="*{selectedRegistrar}" data-live-search="true">
+                                        <option th:value="''" th:text="#{transference.selectFR}"></option>
+                                        
+                                        <option th:each="registrar : ${getRegistrars}" th:value="${registrar}" th:text="${registrar}"></option>
+                                    </select>
+                                    <p th:each="error: ${#fields.errors('selectedRegistrar')}" th:text="${error}">Validation error</p>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="mycontainer">
+                        
+                            <div class="myMainLeftLayout"><span class="login-title" th:text="#{transference.selectIntervalTime}"/></span></div>
+                            
+                            <div class="myMainCentreLayout">
+                                <div class="form-group padding-sides-none my_style_one">
+                                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                        <div class="myLeftLayoutForCalendar">
+                                            <input type="text" class="form-control datetimepicker-input" name="startTime" th:field="*{startTime}" data-live-search="true" data-target="#datetimepicker1"
+                                               id="startTime" placeholder="Time"/>
+                                        </div>
+                                        <div class="myRightLayoutForCalendar">
+	                                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+	                                            <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+	                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="myMainRightLayout">
+                                <div class="form-group padding-sides-none my_style_one">
+                                    <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                        <div class="myLeftLayoutForCalendar">
+                                            <input type="text" class="form-control datetimepicker-input" name="endTime" th:field="*{endTime}" data-live-search="true" data-target="#datetimepicker2"
+                                               id="endTime" placeholder="Time"/>
+                                        </div>
+                                        <div class="myRightLayoutForCalendar">
+	                                        <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+	                                            <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+	                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="mycontainer">
+                            <div class="myMainLeftLayout"><span class="login-title" th:text="#{transference.selectDate}"/></span></div>
+                            
+                            <div class="myMainCentreLayout">
+			                             <div class="form-group padding-sides-none my_style_one">
+			                                 <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+			                                     <div class="myLeftLayoutForCalendar">
+				                                    <input type="text" class="form-control datetimepicker-input" name="selectedDate" th:field="*{selectedDate}" data-live-search="true" data-target="#datetimepicker3"
+				                                               id="needDate" placeholder="Date"/>
+					                             </div>
+					                             <div class="myRightLayoutForCalendar">
+						                             <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+						                             <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+						                             </div>
+					                             </div>
+			                                     <p th:each="error: ${#fields.errors('selectedDate')}" th:text="${error}">Validation error</p>
+			                                 </div>
+			                             </div>
+
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <button type="submit" class="btn btn-raised btn-primary col-sm-12" th:text="#{transference.button}"></button>
+                    </fieldset>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="navbar navbar-fixed-bottom footer">
+        <div class="container">
+            <!--Copyright-->
+            <div class="footer-copyright">
+                <a href="http://www.farmin.by">FARMIN.BY</a>
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/moment-with-locales.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/material.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/ripples.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap-combobox.js}"></script>
+    <script th:src="@{/js/bootstrap-material-datetimepicker.js}"></script>
+    
+	<!--script th:src="@{/webjars/jquery/jquery.min.js}"></script-->
+	<!--script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script-->
+	<!--script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script-->
+	<!--script th:src="@{/assets/moment/moment.min.js}"></script-->
+	!--<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script-->
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.combobox').combobox();
+        });
+    </script>
+    <script th:inline="javascript">
+        $(function(){
+            $("input:checkbox#all").change(function(){
+                var checked = this.checked;
+                $("tbody#tbody input:checkbox").each(function(){this.checked = checked;});
+            });
+    
+            $.material.init();
+        });
+    </script>
+    
+    <script>
+        function getTextWidth(txt) {
+          var $elm = $('<span class="tempforSize">'+txt+'</span>').prependTo("body");
+          var elmWidth = $elm.width();
+          $elm.remove();
+          return elmWidth;
+        }
+        function centerSelect($elm) {
+            var optionWidth = getTextWidth($elm.children(":selected").html())
+            var emptySpace =   $elm.width()- optionWidth;
+            $elm.css("text-indent", (emptySpace/2) - 10);// -10 for some browers to remove the right toggle control width
+        }
+        // on start 
+        $('.centerSelect').each(function(){
+          centerSelect($(this));
+        });
+        // on change
+        $('.centerSelect').on('change', function(){
+          centerSelect($(this));
+        });
+    </script>
+    
+    <script>
+    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'far fa-calendar-check-o',
+            clear: 'far fa-trash',
+            close: 'far fa-times'
+        } });
+
+	    $('#datetimepicker1').datetimepicker({
+	        format: 'HH:mm:ss'
+	    });
+	</script>
+	
+	<script>
+    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'far fa-calendar-check-o',
+            clear: 'far fa-trash',
+            close: 'far fa-times'
+        } });
+
+        $('#datetimepicker2').datetimepicker({
+            format: 'HH:mm:ss'
+        });
+    </script>
+    
+    <script>
+    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'far fa-calendar-check-o',
+            clear: 'far fa-trash',
+            close: 'far fa-times'
+        } });
+
+        $('#datetimepicker3').datetimepicker({
+            format: 'DD.MM.YYYY'
+        });
+    </script>
+
+</body>
+</html>

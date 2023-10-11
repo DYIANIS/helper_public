@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title th:text=#{title}></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css"></link>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"></link>
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap-material-datetimepicker.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/ripples.min.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-main-layout.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-button.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/my-style-for-chooser-file.css}" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+    <div id="wrap">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" th:href="@{/goHome}" th:text=#{title}></a>
+                    </div>
+                    <form class="navbar-form navbar-right" th:action="@{/logout}" method="POST">
+                       <button type="submit" class="btn btn-flat btn-lg" th:text="#{logout}"></button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:utext=#{language}>
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="?lang=en">EN</a></li>
+                                <li><a href="?lang=ru">RU</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+        
+            <div class="well">
+            
+                <form class="form-horizontal" th:action="@{/posVersion}" method="POST" id="myform">
+                <fieldset>
+                
+                    <!--  button type="submit" name="action" value="checkActualVersion" class="btn btn-raised btn-primary form-control" th:text="#{posVersion.button.checkActualVersion}"></button-->
+                
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="all">
+                                        </label>
+                                    </div>
+                                </th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.inventoryHostname}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.hostIP}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.hostPort}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.hostType}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.farminVersion}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.itpharmaVersion}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.status}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.launchDirectory}></th>
+                                <th class="nowrap" width="*" style="text-align:center;" th:text=#{posVersion.lastSynchronizationTime}></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody" th:each="posVersion,status : ${getPosVersionList}">
+                            <tr>
+                                <td width="1%" th:text="${status.count}"></td>
+                                <td width="1%">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ids"  th:attr="value=${posVersion.inventoryHostname}">
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="text-align:center;" th:text="${posVersion.inventoryHostname}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.hostIP}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.hostPort}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.hostType}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.farminVersion}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.itpharmaVersion}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.status}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.launchDirectory}"></td>
+                                <td style="text-align:center;" th:text="${posVersion.lastSynchronizationTime}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            
+                    <button type="submit" name="action" value="deleteSelected" class="btn btn-raised btn-primary btn-danger pull-centre" th:text="#{posVersion.button.deleteSelected}"></button>
+                    <button type="submit" name="action" value="checkVersionSelected" class="btn btn-raised btn-primary form-control" th:text="#{posVersion.button.checkVersionSelected}"></button>
+                    <button type="submit" name="action" value="checkVersionAll" class="btn btn-raised btn-primary form-control" th:text="#{posVersion.button.checkVersionAll}"></button>
+                    
+                    
+                </fieldset>
+                </form>
+            </div>
+        
+        </div>
+    </div>
+    <footer class="navbar navbar-fixed-bottom footer">
+        <div class="container">
+            <!--Copyright-->
+            <div class="footer-copyright">
+                <a href="http://www.farmin.by">FARMIN.BY</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/moment-with-locales.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/material.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/ripples.min.js}"></script>
+    <script th:src="@{/js/bootstrap-material-datetimepicker.js}"></script>
+    
+    <script th:src="@{assets/custom-file-input/bs-custom-file-input.js}"></script>
+
+    <script th:inline="javascript">
+    $(function(){
+        $("input:checkbox#all").change(function(){
+            var checked = this.checked;
+            $("tbody#tbody input:checkbox").each(function(){this.checked = checked;});
+        });
+
+        $.material.init();
+    });
+    </script>
+    
+    <script>
+        bsCustomFileInput.init();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+.buttons {
+    position:absolute; 
+    right:5px; 
+    bottom:5px;
+    width: 100px;
+}
+
+.button-left {
+    float:left;
+    width:45px;
+    margin: 0 2px
+}
+
+.button-right {
+    float:right;
+    width:45px;
+    margin:0 2px;
+}

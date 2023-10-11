@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text=#{login.title}></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css"></link>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/ripples.min.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+    <div id="wrap">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:text=#{title}></a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:utext=#{language}><span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?lang=en">EN</a></li>
+                            <li><a href="?lang=ru">RU</a></li>
+                        </ul>
+                    </li>                         
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="login">
+        <div class = "login">
+        <div class="well">
+            <form th:action="@{/login}" method="post">
+            <span class="login-title" th:text="#{login.title}"></span>
+            <div class="text-center" th:if="${param.error}">
+                <span class="help-block" style="display: block; color: red" th:text="#{error.login}"></span>
+            </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" id="username" name="username" autofocus="autofocus" th:attr="placeholder=#{user.placeholder}"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" id="password" name="password" th:attr="placeholder=#{pass.placeholder}"/>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary" th:attr="value=#{login.action}"/>
+                </div>
+                 <span class="login-title" th:text="#{login.reg.question}"/></span>
+                 <div class="text-center">
+                    <a class="btn btn-primary" th:href="@{/register}" th:text="#{register.title}"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    <footer class="navbar navbar-fixed-bottom footer">
+        <div class="container">
+            <div class="footer-copyright">
+                <a href="http://www.farmin.by">FARMIN.BY</a>
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/moment-with-locales.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/material.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/ripples.min.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != ''){
+                window.location.replace('international?lang=' + selectedOption);
+            }
+        });
+    });
+    </script>
+  </body>
+</html>

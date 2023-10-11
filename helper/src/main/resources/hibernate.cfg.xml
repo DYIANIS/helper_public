@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="com.microsoft.sqlserver.jdbc.SQLServerDriver">com.microsoft.sqlserver</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://***.***.***.***;databaseName=aptekajet</property>
+        <property name="hibernate.connection.username">******</property>
+        <property name="hibernate.connection.password">******</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.CharSet">UTF-8</property>
+        <property name="hibernate.connection.characterSetResults">UTF-8</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.naming.physical-strategy">com.shtura.reminder.dao.jdbc.CustomPhysicalNamingStrategy</property>
+        <property name="hibernate.naming.physical-strategy">org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl</property>
+    </session-factory>
+</hibernate-configuration>

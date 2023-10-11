@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text=#{title}></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css"></link>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"></link>
+    <!-- Bootstrap Material Design -->
+    <link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/bootstrap-material-datetimepicker.css}" rel="stylesheet" type="text/css"></link>
+	<link th:href="@{/css/ripples.min.css}" rel="stylesheet" type="text/css"></link>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+    <div id="wrap">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:text=#{title}></a>
+                </div>
+                <form class="navbar-form navbar-right" th:action="@{/logout}" method="POST">
+                   <button type="submit" class="btn btn-flat btn-lg" th:text="#{logout}"></button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:utext=#{language}>
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="?lang=en">EN</a></li>
+                            <li><a href="?lang=ru">RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:utext=#{demonstration.taskBar}>
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a th:href="@{/it}" th:text="#{demonstration.goToIT}"></a>
+                            </li>
+
+                            <li>
+                                <a th:href="@{/po}" th:text="#{demonstration.goToPO}"></a>
+                            </li>
+                            
+                            
+                            <li>
+                                <a th:href="@{/admin}" th:text="#{demonstration.goToAdmin}"></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="well">
+			<div>
+			 <h2 th:text="#{admin.default}"/>
+			</div>
+        </div>
+    </div>
+    </div>
+    <footer class="navbar navbar-fixed-bottom footer">
+        <div class="container">
+            <!--Copyright-->
+            <div class="footer-copyright">
+                <a href="http://www.farmin.by">FARMIN.BY</a>
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/moment-with-locales.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/material.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/ripples.min.js}"></script>
+    <script th:src="@{/js/bootstrap-material-datetimepicker.js}"></script>
+    <script th:inline="javascript">
+    $(function(){
+        $("input:checkbox#all").change(function(){
+            var checked = this.checked;
+            $("tbody#tbody input:checkbox").each(function(){this.checked = checked;});
+        });
+
+        $.material.init();
+    });
+    </script>
+
+</body>
+</html>

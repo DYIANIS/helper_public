@@ -1,0 +1,6 @@
+.myLeftLayoutForCalendar{ }
+.myRightLayoutForCalendar{ }
+body{ margin:0; }
+
+.myLeftLayoutForCalendar{ float: left; width: 92%; }
+.myRightLayoutForCalendar{ float:right; margin-left: auto; margin-top: 5%;}

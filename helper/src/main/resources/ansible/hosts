@@ -1,0 +1,131 @@
+[cashboxes:children]
+fitobel_x64
+kompovid_x64
+neska_x64
+meditek_x64
+updatePosFit38
+updatePosFit19
+servers
+iRetail
+test
+testByShturA
+testOfficeFarmin
+
+[meditek_x64]
+meditek02kass01 ansible_host=172.26.185.2 ansible_port=10122
+meditek02kass02 ansible_host=172.26.185.2 ansible_port=10222
+meditek04kass01 ansible_host=172.26.185.4 ansible_port=10122
+meditek07kass01 ansible_host=172.26.185.7 ansible_port=10122
+meditek07kass02 ansible_host=172.26.185.7 ansible_port=10222
+meditek10kass01 ansible_host=172.26.185.10 ansible_port=10122
+meditek11kass01 ansible_host=172.26.185.11 ansible_port=10122
+meditek12kass01 ansible_host=172.26.185.12 ansible_port=10122
+meditek12kass02 ansible_host=172.26.185.12 ansible_port=10222
+meditek14kass01 ansible_host=172.26.185.14 ansible_port=10122
+meditek14kass02 ansible_host=172.26.185.14 ansible_port=10222
+meditek15kass01 ansible_host=172.26.185.15 ansible_port=10122
+meditek16kass01 ansible_host=172.26.185.16 ansible_port=10122
+
+[fitobel_x64]
+fit01kass01 ansible_host=172.26.181.1 ansible_port=10122
+fit01kass02 ansible_host=172.26.181.1 ansible_port=10222
+fit03kass01 ansible_host=172.26.181.3 ansible_port=10122
+fit03kass02 ansible_host=172.26.181.3 ansible_port=10222
+fit07kass01 ansible_host=172.26.181.7 ansible_port=10122
+fit08kass01 ansible_host=172.26.181.8 ansible_port=10122
+fit10kass01 ansible_host=172.26.181.10 ansible_port=10122
+fit11kass01 ansible_host=172.26.181.11 ansible_port=10122
+fit15kass01 ansible_host=172.26.181.15 ansible_port=10122
+fit17kass01 ansible_host=172.26.181.17 ansible_port=10122
+fit18kass01 ansible_host=172.26.181.18 ansible_port=10122
+fit19kass01 ansible_host=172.26.181.19 ansible_port=10122
+fit19kass02 ansible_host=172.26.181.19 ansible_port=10222
+fit19kass03 ansible_host=172.26.181.19 ansible_port=10322
+fit21kass01 ansible_host=172.26.181.21 ansible_port=10122
+fit22kass01 ansible_host=172.26.181.22 ansible_port=10122
+fit22kass02 ansible_host=172.26.181.22 ansible_port=10222
+fit23kass01 ansible_host=172.26.181.23 ansible_port=10122
+fit24kass01 ansible_host=172.26.181.24 ansible_port=10122
+fit25kass01 ansible_host=172.26.181.25 ansible_port=10122
+fit26kass01 ansible_host=172.26.181.26 ansible_port=10122
+fit26kass02 ansible_host=172.26.181.26 ansible_port=10222
+fit27kass01 ansible_host=172.26.181.27 ansible_port=10122
+fit28kass01 ansible_host=172.26.181.28 ansible_port=10122
+fit29kass01 ansible_host=172.26.181.29 ansible_port=10122
+fit29kass02 ansible_host=172.26.181.29 ansible_port=10222
+fit30kass01 ansible_host=172.26.181.30 ansible_port=10122
+fit30kass02 ansible_host=172.26.181.30 ansible_port=10222
+fit31kass01 ansible_host=172.26.181.31 ansible_port=10122
+fit32kass01 ansible_host=172.26.181.32 ansible_port=10122
+fit32kass02 ansible_host=172.26.181.32 ansible_port=10222
+fit33kass01 ansible_host=172.26.181.33 ansible_port=10122
+fit34kass01 ansible_host=172.26.181.34 ansible_port=10122
+fit35kass01 ansible_host=172.26.181.35 ansible_port=10122
+fit35kass02 ansible_host=172.26.181.35 ansible_port=10222
+fit36kass01 ansible_host=172.26.181.36 ansible_port=10122
+fit38kass01 ansible_host=172.26.181.38 ansible_port=10122
+fit38kass02 ansible_host=172.26.181.38 ansible_port=10222
+fit39kass01 ansible_host=172.26.181.39 ansible_port=10122
+fit39kass02 ansible_host=172.26.181.39 ansible_port=10222
+
+[kompovid_x64]
+kompovid01kass01 ansible_host=172.26.183.1 ansible_port=10122
+kompovid05kass01 ansible_host=172.26.183.5 ansible_port=10122
+kompovid07kass01 ansible_host=172.26.183.7 ansible_port=10122
+kompovid11kass01 ansible_host=172.26.183.11 ansible_port=10122
+kompovid14kass02 ansible_host=172.26.183.14 ansible_port=10222
+
+[neska_x64]
+neska01kass01 ansible_host=172.26.182.1 ansible_port=10122
+neska01kass02 ansible_host=172.26.182.1 ansible_port=10222
+neska02kass01 ansible_host=172.26.182.2 ansible_port=10122
+neska02kass02 ansible_host=172.26.182.2 ansible_port=10222
+neska03kass01 ansible_host=172.26.182.3 ansible_port=10122
+neska03kass02 ansible_host=172.26.182.3 ansible_port=10222
+neska04kass01 ansible_host=172.26.182.4 ansible_port=10122
+neska05kass01 ansible_host=172.26.182.5 ansible_port=10122
+neska05kass02 ansible_host=172.26.182.5 ansible_port=10222
+neska06kass01 ansible_host=172.26.182.6 ansible_port=10122
+neska06kass02 ansible_host=172.26.182.6 ansible_port=10222
+neska07kass01 ansible_host=172.26.182.7 ansible_port=10122
+neska07kass02 ansible_host=172.26.182.7 ansible_port=10222
+neska08kass01 ansible_host=172.26.182.8 ansible_port=10122
+neska09kass01 ansible_host=172.26.182.9 ansible_port=10122
+neska11kass01 ansible_host=172.26.182.11 ansible_port=10122
+neska11kass02 ansible_host=172.26.182.11 ansible_port=10222
+neska12kass01 ansible_host=172.26.182.12 ansible_port=10122
+neska12kass02 ansible_host=172.26.182.12 ansible_port=10222
+neska14kass01 ansible_host=172.26.182.14 ansible_port=10122
+neska14kass02 ansible_host=172.26.182.14 ansible_port=10222
+neska15kass01 ansible_host=172.26.182.15 ansible_port=10122
+neska15kass02 ansible_host=172.26.182.15 ansible_port=10222
+neska16kass01 ansible_host=172.26.182.16 ansible_port=10122
+neska16kass02 ansible_host=172.26.182.16 ansible_port=10222
+neska17kass01 ansible_host=172.26.182.17 ansible_port=10122
+neska17kass02 ansible_host=172.26.182.17 ansible_port=10222
+neska17kass03 ansible_host=172.26.182.17 ansible_port=10322
+neska19kass01 ansible_host=172.26.182.19 ansible_port=10122
+neska19kass02 ansible_host=172.26.182.19 ansible_port=10222
+neska19kass03 ansible_host=172.26.182.19 ansible_port=10322
+neska20kass01 ansible_host=172.26.182.20 ansible_port=10122
+neska20kass02 ansible_host=172.26.182.20 ansible_port=10222
+neska21kass01 ansible_host=172.26.182.21 ansible_port=10122
+neska21kass02 ansible_host=172.26.182.21 ansible_port=10222
+neska22kass01 ansible_host=172.26.182.22 ansible_port=10122
+neska23kass01 ansible_host=172.26.182.23 ansible_port=10122
+neska24kass01 ansible_host=172.26.182.24 ansible_port=10122
+neska24kass02 ansible_host=172.26.182.24 ansible_port=10222
+neska25kass01 ansible_host=172.26.182.25 ansible_port=10122
+neska25kass02 ansible_host=172.26.182.25 ansible_port=10222
+neska27kass01 ansible_host=172.26.182.27 ansible_port=10122
+neska30kass01 ansible_host=172.26.182.30 ansible_port=10122
+
+[updatePosFit38]
+fit38kass01 ansible_host=172.26.181.38 ansible_port=10122
+fit38kass02 ansible_host=172.26.181.38 ansible_port=10222
+
+[updatePosFit19]
+fit19kass01 ansible_host=172.26.181.19 ansible_port=10122
+fit19kass02 ansible_host=172.26.181.19 ansible_port=10222
+fit19kass03 ansible_host=172.26.181.19 ansible_port=10322
+
